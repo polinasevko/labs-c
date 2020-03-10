@@ -20,17 +20,17 @@ void Cycle(double x, int n, double e) {
 	double series = 0;
 	sinx = sin(x);
 	while (counter <= n) {
-		series += (pow(-1, counter - 1) * pow(x, 2 * counter - 1)) / fact(2 * counter - 1);
+		series += (pow(-1, (double)counter - 1) * pow(x, 2 * (double)counter - 1)) / fact(2 * counter - 1);
 		if (fabs(series - sinx) < e && N == 0) {
 			N = counter;
 		}
 		counter++;
-	} 
+	}
 	printf("sin x = %lf\n\n", sinx);
 	printf("series = %lf\n", series);
 	if (N == 0) {
 		while (fabs(series - sinx) > e) {
-			series += (pow(-1, counter - 1) * pow(x, 2 * counter - 1)) / fact(2 * counter - 1);
+			series += (pow(-1, (double)counter - 1) * pow(x, 2 * (double)counter - 1)) / fact(2 * counter - 1);
 			counter++;
 		}
 		N = counter;
@@ -40,7 +40,7 @@ void Cycle(double x, int n, double e) {
 // Recursion
 double Rec(double x, int n, double e) {
 	static double series = 0;
-	series += (pow(-1, n - 1) * pow(x, 2 * n - 1)) / fact(2 * n - 1);
+	series += (pow(-1, (double)n - 1) * pow(x, 2 * (double)n - 1)) / fact(2 * n - 1);
 	n--;
 	if (n > 0) {
 		return Rec(x, n, e);
